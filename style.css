@@ -1,0 +1,62 @@
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", sans-serif;
+}
+
+.w3-row-padding img {
+    margin-bottom: 12px;
+}
+
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {
+    width: 120px;
+    background: #7edc20;
+}
+
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {
+    margin-left: 120px;
+}
+
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {
+    #main {
+        margin-left: 0;
+    }
+}
+
+/* Style for skills bars */
+.skill-level {
+    height: 28px;
+    background-color: #f1f1f1;
+}
+
+/* Custom style for LinkedIn button */
+button {
+    background-color: #0077B5;
+    color: white;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Footer Icons */
+.custom-footer-icon {
+    padding: 10px 20px;
+    font-size: 36px;
+    color: #ff2a2a;
+    transition: color 0.3s ease;
+}
+
+.custom-footer-icon:hover {
+    color: #1e90ff;
+}
+ 
+/* for glow behind image */
+.image-wrapper {
+    display: inline-block; /* Keeps the glow effect tightly around the image */
+    box-shadow: 0 0 20px white; /* Change the color and size as desired */
+    border-radius: 24px; /* Matches the border-radius of the image */
+    padding: 7px; /* Optional: adds space between the image and the glow */
+}
+
