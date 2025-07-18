@@ -88,18 +88,54 @@
       <div class="container">
         <h2>Certificates</h2>
         <div class="certificates-gallery">
-          <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0007.jpg" alt="Certificate 1" class="certificate-img">
-          <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0006.jpg" alt="Certificate 2" class="certificate-img">
-          <img src="Pictures/ilovepdf_pages-to-jpg/Screenshot 2025-03-21 121321.png" alt="Certificate 3" class="certificate-img">
-          <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0004.jpg" alt="Certificate 4" class="certificate-img">
-          <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0001.jpg" alt="Certificate 5" class="certificate-img">
-          <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0002.jpg" alt="Certificate 6" class="certificate-img">
-          <img src="Pictures/ilovepdf_pages-to-jpg/Screenshot 2025-03-21 121441.png" alt="Certificate 7" class="certificate-img">
-          <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0003.jpg" alt="Certificate 8" class="certificate-img">
-          <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0005.jpg" alt="Certificate 9" class="certificate-img">
-          <img src="Pictures/ilovepdf_pages-to-jpg/Screenshot 2025-03-21 121151.png" alt="Certificate 10" class="certificate-img">
-          <img src="Pictures/ilovepdf_pages-to-jpg/AWS certificate_page-0001.jpg" alt="AWS Certificate" class="certificate-img">
-          <img src="Pictures/ilovepdf_pages-to-jpg/GOOGLE Certificate_page-0001.jpg" alt="Google Certificate" class="certificate-img">
+          <div class="certificate-img-container">
+            <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0007.jpg" alt="Certificate 1" class="certificate-img">
+            <span class="certificate-open-label">Open</span>
+          </div>
+          <div class="certificate-img-container">
+            <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0006.jpg" alt="Certificate 2" class="certificate-img">
+            <span class="certificate-open-label">Open</span>
+          </div>
+          <div class="certificate-img-container">
+            <img src="Pictures/ilovepdf_pages-to-jpg/Screenshot 2025-03-21 121321.png" alt="Certificate 3" class="certificate-img">
+            <span class="certificate-open-label">Open</span>
+          </div>
+          <div class="certificate-img-container">
+            <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0004.jpg" alt="Certificate 4" class="certificate-img">
+            <span class="certificate-open-label">Open</span>
+          </div>
+          <div class="certificate-img-container">
+            <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0001.jpg" alt="Certificate 5" class="certificate-img">
+            <span class="certificate-open-label">Open</span>
+          </div>
+          <div class="certificate-img-container">
+            <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0002.jpg" alt="Certificate 6" class="certificate-img">
+            <span class="certificate-open-label">Open</span>
+          </div>
+          <div class="certificate-img-container">
+            <img src="Pictures/ilovepdf_pages-to-jpg/Screenshot 2025-03-21 121441.png" alt="Certificate 7" class="certificate-img">
+            <span class="certificate-open-label">Open</span>
+          </div>
+          <div class="certificate-img-container">
+            <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0003.jpg" alt="Certificate 8" class="certificate-img">
+            <span class="certificate-open-label">Open</span>
+          </div>
+          <div class="certificate-img-container">
+            <img src="Pictures/ilovepdf_pages-to-jpg/merged PDF's_page-0005.jpg" alt="Certificate 9" class="certificate-img">
+            <span class="certificate-open-label">Open</span>
+          </div>
+          <div class="certificate-img-container">
+            <img src="Pictures/ilovepdf_pages-to-jpg/Screenshot 2025-03-21 121151.png" alt="Certificate 10" class="certificate-img">
+            <span class="certificate-open-label">Open</span>
+          </div>
+          <div class="certificate-img-container">
+            <img src="Pictures/ilovepdf_pages-to-jpg/AWS certificate_page-0001.jpg" alt="AWS Certificate" class="certificate-img">
+            <span class="certificate-open-label">Open</span>
+          </div>
+          <div class="certificate-img-container">
+            <img src="Pictures/ilovepdf_pages-to-jpg/GOOGLE Certificate_page-0001.jpg" alt="Google Certificate" class="certificate-img">
+            <span class="certificate-open-label">Open</span>
+          </div>
         </div>
       </div>
     </section>
@@ -195,11 +231,11 @@
       const modal = document.getElementById('certificate-modal');
       const modalImg = document.getElementById('modal-img');
       const closeBtn = document.getElementById('modal-close');
-      document.querySelectorAll('.certificate-img').forEach(img => {
-        img.addEventListener('click', function() {
+      document.querySelectorAll('.certificate-img-container').forEach(container => {
+        container.addEventListener('click', function() {
           modal.style.display = 'flex';
-          modalImg.src = this.src;
-          modalImg.alt = this.alt;
+          modalImg.src = this.querySelector('.certificate-img').src;
+          modalImg.alt = this.querySelector('.certificate-img').alt;
         });
       });
       closeBtn.onclick = function() {
