@@ -483,7 +483,6 @@ body {
   }
   .certificates-gallery {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(12, 200px);
   }
   .achievements {
     flex-direction: column;
@@ -553,7 +552,6 @@ body {
   }
   .certificates-gallery {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(12, 200px);
   }
 }
 @media (max-width: 500px) {
