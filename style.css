@@ -1,62 +1,489 @@
-body, h1, h2, h3, h4, h5, h6 {
-    font-family: "Montserrat", sans-serif;
+body {
+  margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #232942;
+  color: #f3f3f3;
+  position: relative;
 }
 
-.w3-row-padding img {
-    margin-bottom: 12px;
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 100vh;
+  background: rgba(42,82,152,0.95);
+  box-shadow: 2px 0 24px 0 #7edcfa, 0 0 32px 0 #fff3;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 18px;
+}
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar nav ul li {
+  margin: 1.5rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.sidebar nav ul li a {
+  display: block;
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
+  background: rgba(34, 34, 34, 0.95);
+  box-shadow: 0 0 16px 2px #00ff88;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  text-align: center;
+  margin-left: 0;
+  position: relative;
+  z-index: 1;
+}
+.sidebar nav ul li a:hover, .sidebar nav ul li a:focus {
+  background: #00ff88;
+  color: #232942;
+  box-shadow: 0 0 24px 4px #00ff88;
 }
 
-/* Set the width of the sidebar to 120px */
-.w3-sidebar {
-    width: 120px;
-    background: #7edc20;
+.header {
+  background: #111;
+  padding: 3rem 0 2rem 0;
+  text-align: center;
+  margin-left: 110px;
+  position: relative;
+  z-index: 1;
+}
+.profile-pic-glow {
+  display: inline-block;
+  box-shadow: 0 0 60px #fff, 0 0 120px #7edcfa;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.profile-pic {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  transition: width 0.3s, height 0.3s;
+}
+.profile-pic.large {
+  width: 300px;
+  height: 300px;
+}
+.typing {
+  font-size: 2.5rem;
+  font-weight: bold;
+  min-height: 3rem;
+  color: #fff;
+  letter-spacing: 2px;
+  margin: 1rem 0 0.5rem 0;
+}
+.subtitle {
+  font-size: 1.2rem;
+  color: #b3e6ff;
+  margin-bottom: 1.5rem;
+}
+.social-links a {
+  color: #fff;
+  font-size: 2rem;
+  margin: 0 0.5rem;
+  transition: color 0.2s;
+}
+.social-links a:hover {
+  color: #7edcfa;
+}
+.cta-btn {
+  display: inline-block;
+  background: #7edcfa;
+  color: #232942;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 1.2rem;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(126,220,250,0.2);
+}
+.cta-btn:hover {
+  background: #fff;
+  color: #2a5298;
 }
 
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-#main {
-    margin-left: 120px;
+.navbar {
+  background: #2a5298;
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-left: 110px;
+  position: relative;
+  z-index: 1;
+}
+.navbar .container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.navbar a {
+  color: #f3f3f3;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: background 0.2s, color 0.2s;
+}
+.navbar a:hover {
+  background: #7edcfa;
+  color: #232942;
 }
 
-/* Remove margins from "page content" on small screens */
-@media only screen and (max-width: 600px) {
-    #main {
-        margin-left: 0;
-    }
+.section {
+  padding: 3rem 0 2rem 0;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+  margin-left: 110px;
+  position: relative;
+  z-index: 1;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* Style for skills bars */
-.skill-level {
-    height: 28px;
-    background-color: #f1f1f1;
+.skills {
+  margin: 2rem 0 1.5rem 0;
+}
+.skill {
+  margin-bottom: 1rem;
+}
+.skill span {
+  display: inline-block;
+  width: 160px;
+  font-weight: 500;
+}
+.bar {
+  display: inline-block;
+  width: 60%;
+  height: 16px;
+  background: #333b5a;
+  border-radius: 8px;
+  vertical-align: middle;
+  margin-left: 1rem;
+}
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7edcfa 0%, #2a5298 100%);
+  border-radius: 8px;
+}
+.achievements {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0 1.5rem 0;
+  flex-wrap: wrap;
+}
+.achievements div {
+  background: #2a5298;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  margin: 0.5rem;
+  flex: 1 1 120px;
+  box-shadow: 0 2px 8px rgba(42,82,152,0.15);
+}
+.achievements strong {
+  font-size: 1.5rem;
+  color: #7edcfa;
+  display: block;
+}
+.achievements span {
+  font-size: 1rem;
+  color: #b3e6ff;
 }
 
-/* Custom style for LinkedIn button */
-button {
-    background-color: #0077B5;
-    color: white;
-    border-radius: 15px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+.directors-feedback {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2.5rem 0 1.5rem 0;
+  justify-content: center;
+}
+.director-card {
+  background: rgba(126,220,250,0.13);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px #7edcfa33;
+  padding: 1.2rem 1.5rem;
+  max-width: 260px;
+  text-align: center;
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.director-pic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.7rem;
+  border: 3px solid #7edcfa;
+  box-shadow: 0 0 12px #fff8;
+}
+.director-card p {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0;
+}
+.director-card strong {
+  color: #7edcfa;
+  font-size: 1.1rem;
+}
+.director-card em {
+  color: #b3e6ff;
+  font-size: 0.98rem;
 }
 
-/* Footer Icons */
-.custom-footer-icon {
-    padding: 10px 20px;
-    font-size: 36px;
-    color: #ff2a2a;
-    transition: color 0.3s ease;
+.projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.project-card {
+  background: #2a5298;
+  border-radius: 16px;
+  padding: 1.5rem;
+  flex: 1 1 250px;
+  min-width: 220px;
+  box-shadow: 0 2px 8px rgba(42,82,152,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+}
+.project-card h3 {
+  margin-top: 0;
+  color: #7edcfa;
+}
+.project-card a {
+  margin-top: auto;
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.project-card a:hover {
+  color: #7edcfa;
+}
+.project-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(42,82,152,0.18);
 }
 
-.custom-footer-icon:hover {
-    color: #1e90ff;
+.certificates-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 200px);
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
- 
-/* for glow behind image */
-.image-wrapper {
-    display: inline-block; /* Keeps the glow effect tightly around the image */
-    box-shadow: 0 0 20px white; /* Change the color and size as desired */
-    border-radius: 24px; /* Matches the border-radius of the image */
-    padding: 7px; /* Optional: adds space between the image and the glow */
+.certificates-gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(126,220,250,0.18);
+  background: #fff;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), box-shadow 0.4s;
+}
+.certificates-gallery img:hover {
+  transform: scale(1.07) rotate(-2deg);
+  box-shadow: 0 8px 24px rgba(126,220,250,0.22);
+}
+
+.contact-info {
+  margin-bottom: 1.5rem;
+}
+.contact-info p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+.contact-info a {
+  color: #7edcfa;
+  text-decoration: none;
+}
+.contact-info a:hover {
+  text-decoration: underline;
+}
+.contact-links .cta-btn {
+  margin-top: 0.5rem;
+}
+
+.footer {
+  background: #2a5298;
+  color: #b3e6ff;
+  text-align: center;
+  padding: 1.5rem 0 1rem 0;
+  margin-top: 2rem;
+  font-size: 1rem;
+  margin-left: 110px;
+}
+
+/* Certificate Modal Styles */
+.certificate-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s;
+}
+.certificate-modal .modal-content {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px #000a;
+  background: #fff;
+  object-fit: contain;
+  display: block;
+}
+.modal-close {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  text-shadow: 0 2px 8px #000a;
+  transition: color 0.2s;
+}
+.modal-close:hover {
+  color: #00ff88;
+}
+@media (max-width: 700px) {
+  .certificate-modal .modal-content {
+    max-width: 98vw;
+    max-height: 60vh;
+  }
+  .modal-close {
+    top: 12px;
+    right: 18px;
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 500px) {
+  .certificate-modal .modal-content {
+    max-width: 99vw;
+    max-height: 45vh;
+  }
+  .modal-close {
+    top: 6px;
+    right: 8px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .certificates-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 200px);
+  }
+}
+@media (max-width: 900px) {
+  .sidebar {
+    width: 70px;
+    padding-left: 0;
+  }
+  .header, .navbar, .section, .footer {
+    margin-left: 70px;
+  }
+  .profile-pic.large {
+    width: 180px;
+    height: 180px;
+  }
+  .certificates-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(12, 200px);
+  }
+}
+@media (max-width: 700px) {
+  .container {
+    width: 98%;
+    padding: 0 0.5rem;
+  }
+  .projects-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .achievements {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sidebar {
+    position: static;
+    width: 100vw;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: none;
+    background: #2a5298;
+    z-index: 10;
+    padding-left: 0;
+  }
+  .sidebar nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+  }
+  .sidebar nav ul li {
+    margin: 0.5rem 1rem;
+  }
+  .header, .navbar, .section, .footer {
+    margin-left: 0;
+  }
+  .certificates-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(12, 200px);
+  }
+}
+@media (max-width: 500px) {
+  .header {
+    padding: 2rem 0 1rem 0;
+  }
+  .profile-pic, .profile-pic.large {
+    width: 110px;
+    height: 110px;
+  }
+  .typing {
+    font-size: 1.5rem;
+    min-height: 2rem;
+  }
+  .navbar .container {
+    gap: 0.5rem;
+  }
+  .section {
+    padding: 1.5rem 0 1rem 0;
+  }
+  .certificates-gallery img {
+    height: 120px;
+  }
 }
 
