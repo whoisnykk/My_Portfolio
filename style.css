@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Montserrat', Arial, sans-serif;
-  background: #ffffff;
+  background: #f4f6fa !important;
   color: #232942;
   position: relative;
 }
@@ -970,5 +970,25 @@ body {
     max-width: 400px;
     margin: 0.7rem auto;
   }
+}
+
+.achievements-gallery .certificate-img-container {
+  background: #fff !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+}
+.achievements-gallery .certificate-img {
+  background: #fff !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+}
+
+/* Remove all section dividers and unify background */
+.section,
+.container,
+.footer {
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
 }
 
