@@ -266,9 +266,13 @@ body {
 
 .projects-list {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 2rem;
   margin-top: 2rem;
+  overflow: visible !important;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
 }
 .project-card {
   background: #232942;
@@ -282,6 +286,8 @@ body {
   align-items: flex-start;
   transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
   color: #ffffff;
+  border-radius: 22px !important;
+  box-shadow: 0 0 24px 6px #22d3ee33;
 }
 .project-card h3 {
   margin-top: 0;
@@ -299,6 +305,18 @@ body {
 .project-card:hover {
   transform: translateY(-8px) scale(1.03);
   box-shadow: 0 8px 24px rgba(42,82,152,0.18);
+}
+@media (max-width: 700px) {
+  .project-card {
+    border-radius: 18px !important;
+    box-shadow: 0 0 18px 4px #22d3ee33;
+  }
+}
+@media (max-width: 500px) {
+  .project-card {
+    border-radius: 14px !important;
+    box-shadow: 0 0 14px 3px #22d3ee33;
+  }
 }
 
 .certificates-gallery {
@@ -674,18 +692,20 @@ body {
 }
 @media (max-width: 900px) {
   .projects-list {
-    flex-direction: row !important;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 1rem;
-    padding-bottom: 0.5rem;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    gap: 2rem !important;
+    align-items: stretch !important;
+    padding: 0 0.5rem;
   }
   .project-card {
-    flex: 1 1 0;
-    min-width: 220px;
-    max-width: 90vw;
-    box-sizing: border-box;
-    margin: 0.5rem 0;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 1.5rem !important;
+    border-radius: 18px !important;
+    box-shadow: 0 3px 12px 0 #22d3ee33 !important;
   }
 }
 @media (max-width: 700px) {
@@ -1199,5 +1219,46 @@ body {
 @keyframes bloodCardPulse {
   0%, 100% { box-shadow: 0 4px 32px 0 #e5393544, 0 0 32px 8px #e5393544; }
   50% { box-shadow: 0 12px 48px 0 #e53935aa, 0 0 48px 16px #ffb3b3ee; }
+}
+
+.project-card.job-insight {
+  color: #00b300 !important;
+}
+.project-card.blood-connect {
+  color: #e53935 !important;
+}
+
+
+@media (max-width: 900px) {
+  .projects-list {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 0.5rem;
+  }
+  .project-card {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1.5rem;
+    border-radius: 18px !important;
+    box-shadow: 0 3px 12px 0 #22d3ee33;
+  }
+}
+@media (max-width: 500px) {
+  .projects-list {
+    padding: 0 0.2rem;
+  }
+  .project-card {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1.7rem;
+    border-radius: 14px !important;
+    box-shadow: 0 2px 8px 0 #22d3ee33;
+  }
+}
+@media (max-width: 900px) {
+  .project-card {
+    min-height: 420px !important;
+    padding-bottom: 2.5rem !important;
+  }
 }
 
