@@ -47,7 +47,7 @@ body {
   position: relative;
   z-index: 1;
   border: none;
-  width: 130px;
+  width: 110px;
   text-align: left;
 }
 .sidebar nav ul li a:hover, .sidebar nav ul li a:focus {
